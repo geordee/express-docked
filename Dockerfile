@@ -1,16 +1,9 @@
 # build
-FROM node:14-buster-slim as builder
-
-ENV NODE node14
-ENV PLATFORM linux
-ENV ARCH x64
+FROM  builder/node-pkg:14-x64 as builder
 
 WORKDIR /build
 COPY . .
-RUN npm install
-
-RUN ./node_modules/.bin/pkg-fetch ${NODE} ${PLATFORM} ${ARCH}
-RUN ./node_modules/.bin/pkg package.json --targets ${NODE}-${PLATFORM}-${ARCH} --output demo
+RUN npm install && pkg package.json --targets node14-linux-x64 --output demo
 
 # package
 FROM debian:buster-slim

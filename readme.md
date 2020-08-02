@@ -9,7 +9,13 @@ npm install
 npm start
 ```
 
-# Build & Deploy
+# Build Packager
+
+```bash
+docker build -f Dockerfile.pkg -t builder/node-pkg:14-x64 .
+```
+
+# Build
 
 ```bash
 docker build -t express/demo:latest .

@@ -1,0 +1,4 @@
+# build
+FROM node:14-buster-slim
+
+RUN npm install -g pkg pkg-fetch && pkg-fetch node14 linux x64
