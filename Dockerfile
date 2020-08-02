@@ -8,6 +8,9 @@ RUN npm install && pkg package.json --targets node14-linux-x64 --output demo
 # package
 FROM debian:buster-slim
 
+ENV USER_NAME="John Doe"
+ENV USER_EMAIL="john.doe@example.com"
+
 WORKDIR /apps
 COPY --from=builder /build/demo /apps/demo
 
